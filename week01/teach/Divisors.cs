@@ -18,6 +18,20 @@ public static class Divisors {
     /// <returns>List of divisors</returns>
     private static List<int> FindDivisors(int number) {
         List<int> results = new List<int>();
+
+        // Add 1 as the first divisor
+    results.Add(1);
+
+    // Iterate through numbers from 2 to (number - 1)
+    for (int i = 2; i < number; i++) {
+        // Check if 'number' is divisible by 'i' (i.e., 'number' % 'i' == 0)
+        if (number % i == 0) {
+            // If it's divisible, add 'i' to the list of divisors
+            results.Add(i);
+        }
+    }
+
+
         // Todo problem 1
         return results;
     }

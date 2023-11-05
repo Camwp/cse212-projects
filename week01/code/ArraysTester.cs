@@ -33,14 +33,29 @@ public static class ArraysTester {
     /// </summary>
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     private static double[] MultiplesOf(double number, int length)
-    {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+{
+    // TODO Problem 1 Start
+    // Plan:
+    // 1. Initialize an array to store the multiples. The array should have a size of 'length' to hold the calculated multiples.
+    // 2. Use a loop to iterate from 1 to 'length'.
+    // 3. For each iteration, calculate the multiple by multiplying 'number' by the current iteration index.
+    // 4. Store the calculated multiple in the corresponding position in the array.
+    // 5. After the loop, return the array with the calculated multiples.
 
-        return new double[0]; // replace this return statement with your own
+    // Initialize an array to store the multiples.
+    double[] multiples = new double[length];
+
+    // Use a loop to calculate and store the multiples in the array.
+    for (int i = 0; i < length; i++)
+    {
+        // Calculate the multiple by multiplying 'number' by (i + 1).
+        multiples[i] = number * (i + 1);
     }
+
+    // Return the array with the calculated multiples.
+    return multiples;
+    // TODO Problem 1 End
+}
     
     /// <summary>
     /// Rotate the 'data' to the right by the 'amount'.  For example, if the data is 
@@ -50,12 +65,22 @@ public static class ArraysTester {
     /// <br /><br />
     /// Because a list is dynamic, this function will modify the existing <c>data</c> list rather than returning a new list.
     /// </summary>
-    private static void RotateListRight(List<int> data, int amount)
-    {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+    public static void RotateListRight(List<int> data, int amount)
+{
+    int effectiveAmount = amount % data.Count;
 
+    List<int> rotatedList = new List<int>();
+
+    // Append the elements that are moved to the beginning of the rotated list
+    rotatedList.AddRange(data.GetRange(data.Count - effectiveAmount, effectiveAmount));
+
+    // Append the remaining elements
+    rotatedList.AddRange(data.GetRange(0, data.Count - effectiveAmount));
+
+    // Update the original list with the rotated data
+    for (int i = 0; i < data.Count; i++)
+    {
+        data[i] = rotatedList[i];
     }
+}
 }
