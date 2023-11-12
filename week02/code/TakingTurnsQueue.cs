@@ -37,9 +37,13 @@ public class TakingTurnsQueue {
             if (person.Turns > 1) {
                 person.Turns -= 1;
                 _people.Enqueue(person);
+            
+            } else if (person.Turns == 0) {
+                // Handle the case where the person has infinite turns
+                _people.Enqueue(person);
             }
 
-            Console.WriteLine(person.Name);
+            Console.WriteLine(person.Name + " " + person.Turns );
         }
     }
 

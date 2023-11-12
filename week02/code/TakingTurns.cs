@@ -22,8 +22,9 @@ public static class TakingTurns {
         players.AddPerson("Bob", 2);
         players.AddPerson("Tim", 5);
         players.AddPerson("Sue", 3);
-        // Console.WriteLine(players);    // This can be un-commented out for debug help
+         Console.WriteLine(players);    // This can be un-commented out for debug help
         while (players.Length > 0)
+            //break;
             players.GetNextPerson();
         // Defect(s) Found: 
 
@@ -49,7 +50,7 @@ public static class TakingTurns {
             players.GetNextPerson();
 
         // Defect(s) Found: 
-
+        //The person would not enqueue if they had 0 turns. They will now enqueue when they have 0 turns infinitely.
         Console.WriteLine("---------");
 
         // Test 3
