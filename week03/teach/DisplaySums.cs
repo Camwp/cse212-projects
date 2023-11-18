@@ -37,7 +37,23 @@ public static class DisplaySums {
     /// in the list.
     /// </summary>
     /// <param name="numbers">array of integers</param>
+    /// 
+    
     private static void DisplaySumPairs(int[] numbers) {
-        // TODO Problem 2 - This should print pairs of numbers in the given array
+        // Use a HashSet to store the numbers we have encountered
+        HashSet<int> seenNumbers = new HashSet<int>();
+
+        foreach (int num in numbers) {
+            int complement = 10 - num;
+
+            // Check if the complement (number needed to sum to 10) is in the HashSet
+            if (seenNumbers.Contains(complement)) {
+                // Display the pair
+                Console.WriteLine($"{num} {complement}");
+            }
+
+            // Add the current number to the HashSet
+            seenNumbers.Add(num);
+        }
     }
 }
